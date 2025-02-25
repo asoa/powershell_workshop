@@ -1,0 +1,4 @@
+Name,Value
+P,Get-Process
+S,Get-Service
+ping,Test-Connection
