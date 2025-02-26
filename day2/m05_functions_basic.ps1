@@ -1,6 +1,6 @@
-Function Write-Statement {
-  Write-Host "Hello, World!" -ForegroundColor Green
-}
+## slide 9: simple function
+
+# create write-stement function
 
 # Write-Statement
 
@@ -14,15 +14,19 @@ Function Write-ServiceStatus {
   $SVC = Get-Service -Name WinRM
   $Name = $SVC.Name
   $Status = $SVC.Status
-  Write-Host "The service $Name is $Status" -ForegroundColor Green
+  # write-host using $Name and $Status variables
 }
 # Write-ServiceStatus
 
+## slide 16: parameters in functions
 Function Write-Statement {
-  param($Statement, $Color)
+  param(
+    # add parameters $Statement and $Color
+  )
   Write-Host $Statement -ForegroundColor $Color
 }
 
+# demo paramater splatting
 $Params = @{
   Statement = "Hello, World!"
   Color = "Green"
@@ -30,22 +34,22 @@ $Params = @{
 
 # Write-Statement @Params
 
-# $sb = {get-process pwsh}
-# $sb.Invoke()
+## slide 23: script blocks
+$sb = {<script block>}
+Invoke-Command -ScriptBlock $sb 
+$sb.Invoke()
+{Get-Process | Select-Object -First 5}.Invoke()
 
-# measure-command {Get-Process}
-
-# demonstration script block
-$sb = {
-  Get-Process
-}
-
-# $sb.Invoke()
-# invoke-command -ScriptBlock $sb
+## slide 29: dot-source notation
 
 # dot source notation
-$func = {$Service = "ALG"}
-$Service = "WinRM"
-. $func
-$Service # WinRM or ALG?
+$MyVariable = "Outside"
+
+Function MyFunction {
+  Write-Host "MyVariable is: $MyVariable" # What is this?
+  $MyVariable = "Inside"
+  Write-Host "MyVariable is: $MyVariable" # What is this?
+}
+
+MyFunction
 

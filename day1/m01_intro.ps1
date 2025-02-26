@@ -13,3 +13,13 @@ write-host bar
 #>
 
 
+function foo {
+  adfad
+}
+
+
+
+
+
+
+

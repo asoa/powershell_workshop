@@ -1,3 +1,8 @@
+## slide 17: execution policy
+Get-ExecutionPolicy -List
+Get-ExecutionPolicy
+
+
 #Requires -RunAsAdministrator
 
 #region Powershell Scripts

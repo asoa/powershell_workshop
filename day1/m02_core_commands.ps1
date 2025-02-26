@@ -1,5 +1,10 @@
 ## slide 5: external versus native commands
 # ping vs test-connection
+ping 127.0.0.1
+(Test-Connection 127.0.0.1) | get-member
+(Test-Connection 127.0.0.1).Status
+Find-Command -Name "*Test*"
+
 
 ## slide 16: get command
 # verb
