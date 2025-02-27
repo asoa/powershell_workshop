@@ -6,6 +6,7 @@
 
 Function Get-SomeService {
   Get-Service -Name WinRM
+  Write-Host "Foo"
 }
 
 # Get-SomeService
@@ -20,8 +21,10 @@ Function Write-ServiceStatus {
 
 ## slide 16: parameters in functions
 Function Write-Statement {
-  param(
+  Param(
     # add parameters $Statement and $Color
+    $Statement,
+    $Color
   )
   Write-Host $Statement -ForegroundColor $Color
 }
@@ -32,11 +35,11 @@ $Params = @{
   Color = "Green"
 }
 
-# Write-Statement @Params
+Write-Statement @Params
 
 ## slide 23: script blocks
-$sb = {<script block>}
-Invoke-Command -ScriptBlock $sb 
+$sb = {Get-Process | Select -First 5}
+Invoke-Command $sb 
 $sb.Invoke()
 {Get-Process | Select-Object -First 5}.Invoke()
 
@@ -49,6 +52,7 @@ Function MyFunction {
   Write-Host "MyVariable is: $MyVariable" # What is this?
   $MyVariable = "Inside"
   Write-Host "MyVariable is: $MyVariable" # What is this?
+  Return "Inside"
 }
 
 MyFunction

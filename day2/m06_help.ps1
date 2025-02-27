@@ -42,8 +42,8 @@ Function Get-SysLogNN {
     [Parameter(Mandatory = $true)]
     [string]$Log,
 
-    [Parameter(Mandatory = $true)]
-    [int]$NumberOfEvents
+    [Parameter(Mandatory = $false)]
+    [int]$NumberOfEvents = 5
   )
   # param($Log, $NumberOfEvents)
   # Get-EventLog -LogName $Log -Newest $NumberOfEvents

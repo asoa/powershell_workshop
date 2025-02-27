@@ -5,15 +5,15 @@
 1 -eq [int]'1'
 
 ## slide 21: filtering w/ parameters versus where-object
-Measure-Command {Get-Process | Where-Object {$_.ProcessName -eq 'powershell'}}
-measure-command {Get-Process -Name "Powershell"}
+Measure-Command {Get-Process | Where-Object {$_.ProcessName -eq 'pwsh'}}
+measure-command {Get-Process -Name "pwsh"}
 
 
 ## slide 28: foreach-object
-Get-Service net* | ForEach-Object {"Hello $_.Name"} # won't work as we intend, why?
+Get-Service net* | ForEach-Object {"Hello $($_.Name)"} # won't work as we intend, why?
 
 Get-Service | foreach {
-  Write-Host $($_.DisplayName) -ForegroundColor Green -NoNewline
+  Write-Host $($_.DisplayName) -ForegroundColor Green 
 } 
 
 # demo process
