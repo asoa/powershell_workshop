@@ -66,3 +66,15 @@ $props = @{
 }
 
 Get-ChildItem -Path c:\windows -File | Measure-Object @props -Property Length
+
+#### export hash tabble to csv; import csv and convert back to hash table
+$hash | Export-Csv - -Path .\foo.csv
+$csv = Import-Csv -path .\foo.csv
+$hashTable = @{}
+foreach ($row in $csv) {
+  $hashTable[$row.Name] = $row.Value
+}
+$hashTable
+$hashTable["Patrick"]
+
+

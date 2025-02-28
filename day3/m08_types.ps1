@@ -41,3 +41,5 @@ $(get-process)[0] -is [System.Diagnostics.Process]
   Hello `tWorld
   Hello `n`n`nWorld
 "@
+
+"foo {0:dddd} bar" -f (get-date)
