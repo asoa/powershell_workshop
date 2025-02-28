@@ -1,5 +1,8 @@
 [CmdletBinding()]
 param (
+    [Parameter](Mandatory = $true)
+    [string]$Foo,
+
     [Parameter(Mandatory=$true, ValueFromPipeline=$true)]
     [string]$CsvFilePath,
     
